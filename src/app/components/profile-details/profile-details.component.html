@@ -1,0 +1,66 @@
+<div class="filter" *ngIf="profileDetails">
+  <div class="profile-title">
+    <span class="title">Profile:</span>
+    <span class="profile-name"><img src="{{profileDetails.photo}}" alt="pic" class="profile-image"/></span>
+    <span class="title">{{profileDetails.first_name}} {{profileDetails.last_name}}</span>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 profile-card">
+        <div class="example-card mat-elevation-z4">
+            <div class="example-header pb-3 pt-2 ps-2">Quick Facts</div>
+            <app-quick-facts-status></app-quick-facts-status>
+            <app-quick-facts-top></app-quick-facts-top>
+            <app-quick-facts-score></app-quick-facts-score>
+            <app-quick-facts-other></app-quick-facts-other>
+        </div>
+      </div>
+      <div class="col-md-10 profile-tabs">
+        <mat-tab-group dynamicHeight>
+          <mat-tab label="Profile Detail">
+            <div class="example-large-box mat-elevation-z4">
+              <div class="details-title">
+                <div class="row">
+                  <div class="col-10 h3">
+                    Profile Detail
+                  </div>
+                  <div class="col-2 text-end">
+                    <mat-icon [routerLink]="'/search'" aria-hidden="false" class="clickable" aria-label="Home">home</mat-icon>
+                  </div>
+                </div>
+              </div>
+              <div class="details-data">
+                <mat-card class="details-card">
+                  <div *ngFor="let detail of details">
+                    <div class="row">
+                      <div class="col-3">
+                        {{detail.value}}
+                      </div>
+                      <div class="col-7 fw-bold">
+                        {{profileDetails}}
+                      </div>
+                      <div class="col-2 text-end">
+                        <mat-icon class="clickable" aria-hidden="false" aria-label="Edit">create</mat-icon>
+                      </div>
+                    </div>
+                    <mat-divider></mat-divider>
+                  </div>
+                </mat-card>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="Profile ID's">
+            <div class="example-large-box mat-elevation-z4">
+              Large content
+            </div>
+          </mat-tab>
+          <mat-tab label="Activity Timeline">
+            <div class="example-large-box mat-elevation-z4">
+              Large content
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>
