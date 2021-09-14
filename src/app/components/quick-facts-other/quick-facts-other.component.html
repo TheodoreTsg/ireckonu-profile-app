@@ -11,55 +11,35 @@
     <div class="col-2 text-end">
       <mat-icon aria-hidden="false" class="status" aria-label="date_range">date_range</mat-icon>
     </div>
-    <div class="col-5">
-      Total Stays:
-    </div>
-    <div class="col-5 fw-500">
-      24
-    </div>
+    <div class="col-5">Total Stays:</div>
+    <div class="col-5 fw-500">{{quickFacts.otherFacts.totalStays}}</div>
   </div>
   <div class="row pt-2">
     <div class="col-2 text-end">
       <mat-icon aria-hidden="false" class="status" aria-label="nights_stay">nights_stay</mat-icon>
     </div>
-    <div class="col-5">
-      Nights:
-    </div>
-    <div class="col-5 fw-500">
-      32
-    </div>
+    <div class="col-5">Nights:</div>
+    <div class="col-5 fw-500">{{quickFacts.otherFacts.nights}}</div>
   </div>
   <div class="row pt-2">
     <div class="col-2 text-end">
       <mat-icon aria-hidden="false" class="status" aria-label="king_bed">king_bed</mat-icon>
     </div>
-    <div class="col-5">
-      Avg Stay:
-    </div>
-    <div class="col-5 fw-500">
-      1.33 nights
-    </div>
+    <div class="col-5">Avg Stay:</div>
+    <div class="col-5 fw-500">{{quickFacts.otherFacts.avgNights}} nights</div>
   </div>
   <div class="row pt-2">
     <div class="col-2 text-end">
       <mat-icon aria-hidden="false" class="status" aria-label="login">login</mat-icon>
     </div>
-    <div class="col-5">
-      Last Visit:
-    </div>
-    <div class="col-5 fw-500">
-      2018-08-15
-    </div>
+    <div class="col-5">Last Visit:</div>
+    <div class="col-5 fw-500">{{quickFacts.otherFacts.lastVisit}}</div>
   </div>
   <div class="row pt-2 pb-2">
     <div class="col-2 text-end">
       <mat-icon aria-hidden="false" class="status" aria-label="payments">payments</mat-icon>
     </div>
-    <div class="col-5">
-      Lifetime Value:
-    </div>
-    <div class="col-5 fw-500">
-      $3084.29
-    </div>
+    <div class="col-5">Lifetime Value:</div>
+    <div class="col-5 fw-500">${{quickFacts.otherFacts.lifetimeValue}}</div>
   </div>
 </div>

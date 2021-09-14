@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, ReplaySubject, throwError } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { catchError, tap } from 'rxjs/operators';
-import { Profile } from '../shared/models';
+import {Profile, RetrieveQuickFacts} from '../shared/models';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +28,16 @@ export class ResourcesService {
       .pipe(
         tap(),
         catchError( reason => {
+          return throwError(reason);
+        })
+      );
+  }
+
+  retrieveFacts(): Observable<RetrieveQuickFacts> {
+    return this.httpClient
+      .get<RetrieveQuickFacts>(environment.localUrl + environment.api.report.retrieveFacts)
+      .pipe(
+        catchError(reason => {
           return throwError(reason);
         })
       );

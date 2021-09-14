@@ -1,17 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Profile } from '../../shared/models';
-import { Subscription } from 'rxjs';
+import {Profile, RetrieveQuickFacts} from '../../shared/models';
+import {Subject, Subscription} from 'rxjs';
 import { ResourcesService } from '../../services/resources.service';
+import {switchMap} from "rxjs/operators";
 
 @Component({
   selector: 'app-profile-details',
   templateUrl: './profile-details.component.html',
   styleUrls: ['./profile-details.component.sass']
 })
-export class ProfileDetailsComponent implements OnInit {
+export class ProfileDetailsComponent implements OnInit, OnDestroy {
 
   profileDetails: Profile;
+  private loadMyFactsLazy = new Subject<RetrieveQuickFacts>();
+  quickFacts: RetrieveQuickFacts;
   details = [
     { id: 'prefix', value: 'Prefix'},
     { id: 'first_name', value: 'First Name'},
@@ -29,13 +32,11 @@ export class ProfileDetailsComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private resourcesService: ResourcesService
-  ) {
-    // this.profileDetails = this.router.getCurrentNavigation()?.extras.state as Profile;
-    // console.log(this.profileDetails);
-  }
+  ) {}
 
   ngOnInit(): void {
-    this.subs.push(this.resourcesService.resources$.subscribe(
+    this.subs.push(
+      this.resourcesService.resources$.subscribe(
       (resources: Profile[]) => {
         const details = resources.find(element => element.localid.toString() === this.route.snapshot.paramMap.get('id'));
         if (details !== undefined) {
@@ -43,5 +44,15 @@ export class ProfileDetailsComponent implements OnInit {
         }
       }
     ));
+    this.subs.push(this.loadMyFactsLazy.pipe(
+     switchMap(params =>
+        this.resourcesService.retrieveFacts())
+    ).subscribe(facts => this.quickFacts = facts));
+
+    this.loadMyFactsLazy.next();
+  }
+
+  ngOnDestroy() {
+    this.subs.forEach(s => s.unsubscribe());
   }
 }

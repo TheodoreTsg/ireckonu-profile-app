@@ -7,7 +7,7 @@ import { ResourcesService } from './services/resources.service';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent implements OnInit {
-  title = 'ireckonu-profile-app';
+  title = 'profile-app';
 
   constructor(
     private resourcesService: ResourcesService

@@ -16,13 +16,13 @@
         [diameter]="30"
         aria-label="Rating">
       </mat-progress-spinner>
-      <div class="spinner-progress">80%</div>
+      <div class="spinner-progress">{{quickFacts.rfmScore.total}}%</div>
     </div>
     <div class="col-11 ps-4">
       <ul class="list-rfm ps-0">
-        <li>R: 70%</li>
-        <li>F: 50%</li>
-        <li>M: 90%</li>
+        <li>R: {{quickFacts.rfmScore.r}}%</li>
+        <li>F: {{quickFacts.rfmScore.f}}%</li>
+        <li>M: {{quickFacts.rfmScore.m}}%</li>
       </ul>
     </div>
 

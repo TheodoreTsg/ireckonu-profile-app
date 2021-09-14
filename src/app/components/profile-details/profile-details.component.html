@@ -9,10 +9,10 @@
       <div class="col-md-2 profile-card">
         <div class="example-card mat-elevation-z4">
             <div class="example-header pb-3 pt-3 ps-2">Quick Facts</div>
-            <app-quick-facts-status></app-quick-facts-status>
-            <app-quick-facts-top></app-quick-facts-top>
-            <app-quick-facts-score></app-quick-facts-score>
-            <app-quick-facts-other></app-quick-facts-other>
+            <app-quick-facts-status [quickFacts]="quickFacts" *ngIf="quickFacts"></app-quick-facts-status>
+            <app-quick-facts-top [quickFacts]="quickFacts" *ngIf="quickFacts"></app-quick-facts-top>
+            <app-quick-facts-score [quickFacts]="quickFacts" *ngIf="quickFacts"></app-quick-facts-score>
+            <app-quick-facts-other [quickFacts]="quickFacts" *ngIf="quickFacts"></app-quick-facts-other>
         </div>
       </div>
       <div class="col-md-10 profile-tabs">
@@ -55,13 +55,15 @@
             </div>
           </mat-tab>
           <mat-tab label="Profile ID's">
-            <div class="example-large-box mat-elevation-z4">
-              Large content
+            <div class="example-large-box d-flex mat-elevation-z4">
+              <mat-icon aria-hidden="false" aria-label="construction">construction</mat-icon>
+              Under construction...
             </div>
           </mat-tab>
           <mat-tab label="Activity Timeline">
-            <div class="example-large-box mat-elevation-z4">
-              Large content
+            <div class="example-large-box d-flex mat-elevation-z4">
+                <mat-icon aria-hidden="false" aria-label="construction">construction</mat-icon>
+                Under construction...
             </div>
           </mat-tab>
         </mat-tab-group>

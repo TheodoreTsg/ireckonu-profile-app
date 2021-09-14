@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {RetrieveQuickFacts} from "../../shared/models";
 
 @Component({
   selector: 'app-quick-facts-status',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quick-facts-status.component.sass']
 })
 export class QuickFactsStatusComponent implements OnInit {
+
+  @Input() quickFacts: RetrieveQuickFacts;
 
   constructor() { }
 

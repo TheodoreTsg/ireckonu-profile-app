@@ -14,3 +14,37 @@ export interface Profile {
   prefix: string;
   suffix: string;
 }
+
+export interface StatusFacts {
+  id: string;
+  tier: string;
+  pts: string;
+}
+
+export interface TopFacts {
+  topOne: string;
+  topTwo: string;
+  topThree: string;
+}
+
+export interface RfmScore {
+  total: number;
+  r: number;
+  f: number;
+  m: number;
+}
+
+export interface OtherFacts {
+  totalStays: number;
+  nights: number;
+  avgNights: string;
+  lastVisit: string;
+  lifetimeValue: number;
+}
+
+export interface RetrieveQuickFacts {
+  statusFacts: StatusFacts;
+  topFacts: TopFacts;
+  rfmScore: RfmScore;
+  otherFacts: OtherFacts;
+}

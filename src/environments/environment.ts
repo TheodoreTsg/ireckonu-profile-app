@@ -4,10 +4,14 @@
 
 export const environment = {
   production: false,
+  localUrl: 'http://localhost:5000',
   serverURL: 'https://',
   authURL: 'profiles-list.firebaseio.com',
   api: {
-    resources: '/Data.json'
+    resources: '/Data.json',
+    report: {
+      retrieveFacts: '/report/retrieveFacts'
+    }
   }
 };
 
