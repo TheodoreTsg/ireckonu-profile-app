@@ -25,6 +25,7 @@ import { QuickFactsTopComponent } from './components/quick-facts-top/quick-facts
 import { QuickFactsScoreComponent } from './components/quick-facts-score/quick-facts-score.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { QuickFactsOtherComponent } from './components/quick-facts-other/quick-facts-other.component';
+import { DetailPipePipe } from './pipes/detail-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { QuickFactsOtherComponent } from './components/quick-facts-other/quick-f
     QuickFactsStatusComponent,
     QuickFactsTopComponent,
     QuickFactsScoreComponent,
-    QuickFactsOtherComponent
+    QuickFactsOtherComponent,
+    DetailPipePipe
   ],
   imports: [
     BrowserModule,

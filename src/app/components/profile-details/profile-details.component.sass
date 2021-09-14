@@ -1,6 +1,7 @@
+@use '../../../palette' as p
 .filter
   height: 200px
-  background: #03a9f4
+  background: p.$lightBlue
   padding-left: 2rem
 
 .title
@@ -32,15 +33,20 @@
   font-weight: 400
 
 .details-card
-  border-radius: unset
+  border-radius: 2px
 
 .example-large-box
   margin: 16px
   border: 10px solid white
+  border-radius: 2px
   padding: 16px
+  min-height: 640px
 
 .details-card .row
   padding-top: 10px
+
+.mat-card
+  padding: 0 15px 5px 15px
 
 ::ng-deep .mat-tab-label, .mat-tab-label-active, .mat-ink-bar
   color: white !important
@@ -48,3 +54,6 @@
 ::ng-deep .mat-ink-bar
   background-color: white !important
   height: 4px !important
+
+.detail-data
+  font-weight: 500

@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-
+@use 'palette' as p
 body
-  background: #f5f5f5
+  background: p.$backgroundColor
 
 .th-right
   text-align: right !important
@@ -15,3 +15,6 @@ body
 
 .mat-form-field-flex
   align-items: flex-end !important
+
+.fw-500
+  font-weight: 500

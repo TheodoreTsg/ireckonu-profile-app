@@ -8,7 +8,7 @@
     <div class="row">
       <div class="col-md-2 profile-card">
         <div class="example-card mat-elevation-z4">
-            <div class="example-header pb-3 pt-2 ps-2">Quick Facts</div>
+            <div class="example-header pb-3 pt-3 ps-2">Quick Facts</div>
             <app-quick-facts-status></app-quick-facts-status>
             <app-quick-facts-top></app-quick-facts-top>
             <app-quick-facts-score></app-quick-facts-score>
@@ -29,24 +29,29 @@
                   </div>
                 </div>
               </div>
-              <div class="details-data">
-                <mat-card class="details-card">
+                <mat-card class="details-card mat-elevation-z4">
                   <div *ngFor="let detail of details">
                     <div class="row">
                       <div class="col-3">
                         {{detail.value}}
                       </div>
-                      <div class="col-7 fw-bold">
-                        {{profileDetails}}
+                      <div class="col-7 detail-data" *ngIf="detail.id !== 'birthdate'; else elseBlock">
+                        {{profileDetails | detailPipe: detail.id}}
+                        <span *ngIf="detail.id === 'prefix'">.</span>
                       </div>
+                      <ng-template #elseBlock>
+                        <div class="col-7 detail-data">
+                          {{profileDetails | detailPipe: detail.id | date: 'yyyy-MM-dd'}}
+                          <span *ngIf="detail.id === 'prefix'">.</span>
+                        </div>
+                      </ng-template>
                       <div class="col-2 text-end">
                         <mat-icon class="clickable" aria-hidden="false" aria-label="Edit">create</mat-icon>
                       </div>
                     </div>
-                    <mat-divider></mat-divider>
+                    <mat-divider *ngIf="detail.id !== 'gender'"></mat-divider>
                   </div>
                 </mat-card>
-              </div>
             </div>
           </mat-tab>
           <mat-tab label="Profile ID's">

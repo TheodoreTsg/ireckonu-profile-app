@@ -1,8 +1,6 @@
+@use '../../../palette' as p
 .open-in-new
-  color: #03a9f4
-
-.status
-  color: #d1ab40
+  color: p.$lightBlue
 
 .list-rfm
   list-style: none
@@ -10,3 +8,15 @@
 
 ul li
   padding-right: 25px
+
+.spinner-progress
+  position: relative
+  top: -23px
+  left: 6px
+  font-size: x-small
+  font-weight: 500
+
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle
+  stroke: p.$lightBlue
+
+

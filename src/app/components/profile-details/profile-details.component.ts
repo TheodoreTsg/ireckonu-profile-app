@@ -44,5 +44,4 @@ export class ProfileDetailsComponent implements OnInit {
       }
     ));
   }
-
 }
