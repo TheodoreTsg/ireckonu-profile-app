@@ -1,9 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {Profile} from '../shared/models';
+import { Profile } from '../shared/models';
 
-@Pipe({
-  name: 'detailPipe'
-})
+@Pipe({name: 'detailPipe'})
 export class DetailPipePipe implements PipeTransform {
 
   transform(profile: Profile, param: string): string {

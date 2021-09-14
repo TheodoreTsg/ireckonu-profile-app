@@ -5,7 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
 import { Profile } from '../../shared/models';
 import { ResourcesService } from '../../services/resources.service';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-page',
@@ -14,14 +14,14 @@ import { Router } from "@angular/router";
 })
 export class SearchPageComponent implements OnInit, OnDestroy {
 
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+
   private subs: Subscription[] = [];
   resources: Profile[] = [];
 
   displayedColumns: string[] = ['photo', 'localid', 'email', 'name', 'phone', 'address', 'modified', 'view'];
   dataSource: MatTableDataSource<Profile>;
-
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(
     private resourcesService: ResourcesService,

@@ -10,9 +10,7 @@ import { Profile } from '../shared/models';
 })
 export class ResourcesService {
 
-  constructor(
-    private httpClient: HttpClient
-  ) { }
+  constructor(private httpClient: HttpClient) { }
 
   private resources = new ReplaySubject<Profile[]>(1);
   resources$: Observable<Profile[]> = this.resources.asObservable();
