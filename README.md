@@ -2,6 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.3.
 
+## How to run locally
+* Clone project into a local folder.
+* Run `npm install` in order to download `node_modules` folder into the project.
+* Run `npm run start` to start mock server and the app locally. Navigate to `http://localhost:4200/`.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
